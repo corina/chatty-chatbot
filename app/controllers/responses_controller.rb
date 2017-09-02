@@ -1,4 +1,4 @@
-class ResponsesController < ApplicationController
+class ResponsesController < ApiController
   before_action :set_message
 
   def index

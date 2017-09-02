@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class MessagesController < ApiController
   before_action :set_message
 
   def show
