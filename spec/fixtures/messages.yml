@@ -1,0 +1,9 @@
+first_message:
+  id: 1
+  content: Do you want to play a game?
+  first_asked: true
+
+second_message:
+  id: 2
+  content: You've chosen trivia. What are penguins famous for?
+  first_asked: false

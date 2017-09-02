@@ -18,7 +18,7 @@ RSpec.configuration do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     DatabaseCleaner.strategy = :transaction
-  end  
+  end
 end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
