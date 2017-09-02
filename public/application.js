@@ -14,14 +14,47 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
-  $("button").click(function(event){
-    event.preventDefault();
-    path = $(this).attr('id')
-    console.log(path);
 
-    $.get("http://localhost:3000" + path, function(data, status){
-        alert("Data: " + data.content + "\nStatus: " + status);
+
+$(document).ready(function () {
+
+  function addNextQuestion(next_question) {
+
+  }
+
+  function addElementToConversation(text, id, elementType) {
+    var node = document.createElement(elementType);
+    node.id = id;
+    var textnode = document.createTextNode(text);
+    node.appendChild(textnode);
+    document.getElementById("conversation").appendChild(node);
+  }
+
+  function addNextMessage(id, next_question) {
+    element = document.getElementById(id);
+    element.setAttribute("data-next-question", next_question);
+  }
+
+  function requestApi(message_id) {
+    $.get("http://localhost:3000/messages/" + message_id, function(data, status){
+      addElementToConversation(data.content, "message" + data.id, "LI");
     });
+
+    $.get("http://localhost:3000/messages/" + message_id + "/responses", function(data, status){
+      console.log(data);
+      data.forEach(function(element){
+        addElementToConversation(element.content, "response" + element.id, "BUTTON");
+        addNextMessage("response" + element.id, element.next_message);
+      })
+    });
+  };
+
+  requestApi(1);
+
+  $(document.body).on('click', 'button', function(event){
+    event.preventDefault();
+    next_question = $(this).attr("data-next-question")
+    console.log(next_question);
+    requestApi(next_question)
   });
 });
