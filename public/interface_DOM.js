@@ -17,8 +17,13 @@
     element.setAttribute("data-next-question", next_question);
   }
 
-  InterfaceDOM.prototype.deactivateButtons = function (next_question) {
-    var buttons = document.querySelectorAll("button[data-next-question='" + next_question + "']")
+  function addResponseClass(id) {
+    element = document.getElementById(id);
+    $(element).addClass("response");
+  }
+
+  InterfaceDOM.prototype.deactivateButtons = function (property) {
+    var buttons = document.querySelectorAll(property)
     buttons.forEach(function(button) {
       button.disabled = true;
     });
@@ -32,6 +37,7 @@
     data.forEach(function(element){
       addElementToConversation(element.content, "response" + element.id, "BUTTON");
       addNextMessage("response" + element.id, element.next_message);
+      addResponseClass("response" + element.id);
     })
   }
 

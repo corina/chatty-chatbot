@@ -21,12 +21,18 @@ $(document).ready(function () {
   interfaceDOM = new InterfaceDOM();
   apiRequest = new ApiRequest();
 
-  apiRequest.makeRequest(1);
-
-  $(document.body).on('click', 'button', function(event){
+  $(document.body).on('click', 'button.hello', function(event){
     event.preventDefault();
     next_question = $(this).attr("data-next-question");
+    console.log(next_question);
     interfaceDOM.deactivateButtons(next_question);
+    apiRequest.makeRequest('?first_asked=true');
+  });
+
+  $(document.body).on('click', 'button.response', function(event){
+    event.preventDefault();
+    next_question = $(this).attr("data-next-question");
+    interfaceDOM.deactivateButtons('button.response');
     apiRequest.makeRequest(next_question);
   });
 });

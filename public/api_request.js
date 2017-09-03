@@ -17,9 +17,18 @@
     interfaceDOM.addEachResponse(responses);
   };
 
+
+  function getMessageId(message_id, message) {
+    if (message_id == '?first_asked=true') {
+      return message.id
+    } else {
+      return message_id
+    }
+  }
+
   ApiRequest.prototype.makeRequest = function (message_id) {
     messageRequest(message_id, function(message) {
-      responseRequest(message_id, function(responses) {
+      responseRequest(getMessageId(message_id, message), function(responses) {
         insertElements(message, responses);
       });
     })
