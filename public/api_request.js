@@ -5,11 +5,11 @@
   };
 
   function responseRequest(message_id, callback) {
-    $.get("/messages/" + message_id + "/responses", callback);
+    $.get("/api/messages/" + message_id + "/responses", callback);
   }
 
   function messageRequest(message_id, callback) {
-    $.get("/messages/" + message_id, callback);
+    $.get("/api/messages/" + message_id, callback);
   }
 
   function insertElements(message, responses) {

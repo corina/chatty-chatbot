@@ -4,10 +4,10 @@ RSpec.describe 'Message', type: :request do
   fixtures :messages
   fixtures :responses
 
-  describe 'GET messages/:message_id' do
+  describe 'GET api/messages/:message_id' do
     context 'valid message_id' do
       it 'returns the message' do
-        get '/messages/2'
+        get '/api/messages/2'
         json = JSON.parse(response.body)
         expect(response).to be_success
         expect(json['content']).to eq "You've chosen trivia. What are penguins famous for?"
@@ -16,16 +16,16 @@ RSpec.describe 'Message', type: :request do
 
     context 'invalid message id' do
       it 'returns an error' do
-        get '/messages/3'
+        get '/api/messages/3'
         expect(response).to have_http_status(404)
       end
     end
   end
 
-  describe 'GET messages/' do
+  describe 'GET api/messages/' do
     context 'query params first_asked=true' do
       it 'returns the message with first_asked property true' do
-        get '/messages?first_asked=true'
+        get '/api/messages?first_asked=true'
         json = JSON.parse(response.body)
         expect(response).to be_success
         expect(json['content']).to eq "Do you want to play a game?"
