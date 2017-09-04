@@ -5,11 +5,11 @@
   };
 
   function responseRequest(message_id, callback) {
-    $.get("http://localhost:3000/messages/" + message_id + "/responses", callback);
+    $.get("/messages/" + message_id + "/responses", callback);
   }
 
   function messageRequest(message_id, callback) {
-    $.get("http://localhost:3000/messages/" + message_id, callback);
+    $.get("/messages/" + message_id, callback);
   }
 
   function insertElements(message, responses) {
@@ -27,8 +27,8 @@
   }
 
   ApiRequest.prototype.makeRequest = function (message_id) {
-    messageRequest(message_id, function(message) {
-      responseRequest(getMessageId(message_id, message), function(responses) {
+    messageRequest(message_id, function(message, error) {
+      responseRequest(getMessageId(message_id, message), function(responses, error) {
         insertElements(message, responses);
       });
     })

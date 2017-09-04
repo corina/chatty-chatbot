@@ -17,19 +17,16 @@
 
 
 $(document).ready(function () {
-
   interfaceDOM = new InterfaceDOM();
   apiRequest = new ApiRequest();
 
   $(document.body).on('click', 'button.hello', function(event){
     event.preventDefault();
-    next_question = $(this).attr("data-next-question");
-    console.log(next_question);
-    interfaceDOM.deactivateButtons(next_question);
     apiRequest.makeRequest('?first_asked=true');
   });
 
   $(document.body).on('click', 'button.response', function(event){
+    document.getElementById(event.target.id).style.background="#76D169";
     event.preventDefault();
     next_question = $(this).attr("data-next-question");
     interfaceDOM.deactivateButtons('button.response');

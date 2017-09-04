@@ -16,7 +16,6 @@ class MessagesController < ApiController
   end
 
   def set_message
-    p params[:first_asked]
     if params[:first_asked] == true.to_s
       @message = Message.where("first_asked = ?", true)[0]
     else
