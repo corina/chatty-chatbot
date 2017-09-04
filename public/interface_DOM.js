@@ -24,9 +24,10 @@
 
   InterfaceDOM.prototype.deactivateButtons = function (property) {
     var buttons = document.querySelectorAll(property)
-    buttons.forEach(function(button) {
-      button.disabled = true;
-    });
+    // I had to replace a forEach function with a for loop in order to test using PhantomJS as the current version of PhantomJS only supports up to ES 5.
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
   }
 
   InterfaceDOM.prototype.addMessage = function (message) {

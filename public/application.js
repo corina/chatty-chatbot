@@ -29,7 +29,7 @@ $(document).ready(function () {
     document.getElementById(event.target.id).style.background="#76D169";
     event.preventDefault();
     next_question = $(this).attr("data-next-question");
-    interfaceDOM.deactivateButtons('button.response');
+    interfaceDOM.deactivateButtons("button.response");
     apiRequest.makeRequest(next_question);
   });
 });

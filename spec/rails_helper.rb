@@ -11,6 +11,13 @@ require 'capybara/poltergeist'
 
 Capybara.javascript_driver = :poltergeist
 
+# Capybara.register_driver :poltergeist do |app|
+#     options = {
+#               js_errors: false
+#               }
+#   Capybara::Poltergeist::Driver.new(app, options)
+# end
+
 # Add additional requires below this line. Rails is not loaded until this point!
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

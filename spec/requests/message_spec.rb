@@ -21,4 +21,15 @@ RSpec.describe 'Message', type: :request do
       end
     end
   end
+
+  describe 'GET messages/' do
+    context 'query params first_asked=true' do
+      it 'returns the message with first_asked property true' do
+        get '/messages?first_asked=true'
+        json = JSON.parse(response.body)
+        expect(response).to be_success
+        expect(json['content']).to eq "Do you want to play a game?"
+      end
+    end
+  end
 end

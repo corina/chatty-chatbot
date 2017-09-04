@@ -1,13 +1,13 @@
 first_response:
   id: 1
-  content: Yes
+  content: 'Yes'
   next_message: 2
   end_game: false
   message_id: 1
 
 second_message:
   id: 2
-  content: No
+  content: 'No'
   next_message: nil
   end_game: true
   message_id: 1
