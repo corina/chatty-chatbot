@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :authenticate
   before_action :set_response, only: [:show, :edit, :update, :destroy]
   before_action :set_message
 
