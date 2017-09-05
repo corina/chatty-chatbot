@@ -1,0 +1,32 @@
+<%= form_for([@message, @response]) do |form| %>
+  <% if response.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+      <ul>
+      <% response.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :response_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :next_message %>
+    <%= form.number_field :next_message, id: :response_next_message %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_game %>
+    <%= form.check_box :end_game, id: :response_end_game %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

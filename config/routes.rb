@@ -10,10 +10,9 @@ namespace :api do
   end
 end
 
-namespace :admin do
-  resources :messages do
-    resources :responses
-  end
+
+resources :messages do
+  resources :responses
 end
 
   root to: "home#index"

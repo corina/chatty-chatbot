@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Responses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Next message</th>
+      <th>End game</th>
+      <th>Message</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @responses.each do |response| %>
+      <tr>
+        <td><%= response.content %></td>
+        <td><%= response.next_message %></td>
+        <td><%= response.end_game %></td>
+        <td><%= link_to 'Show', message_response_path(@message, response) %></td>
+        <td><%= link_to 'Edit', edit_message_response_path(@message, response) %></td>
+        <td><%= button_to 'Destroy', [@message, response], confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', message_responses_path(@message) %>  |
+<%= link_to 'New Response', new_message_response_path %>

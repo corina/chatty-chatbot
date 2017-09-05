@@ -1,0 +1,7 @@
+<h1>New Response</h1>
+
+You are adding responses for: <%= @message.content %>
+
+<%= render 'form', response: @response %>
+
+<%= link_to 'Back', message_responses_path(@message) %>
