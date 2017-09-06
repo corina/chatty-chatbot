@@ -8,6 +8,8 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'support/auth_helper'
+require 'support/auth_request_helper'
 
 Capybara.javascript_driver = :poltergeist
 
@@ -52,6 +54,9 @@ end
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # config.include AuthRequestHelper, :type => :request
+  # config.include AuthHelper, :type => :controller
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

@@ -26,7 +26,7 @@ class ResponsesController < ApplicationController
     @response = @message.responses.build(response_params)
 
     if @response.save
-      redirect_to @message, notice: 'Response was successfully created.'
+      redirect_to message_response_path(@message, @response), notice: 'Response was successfully created.'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ResponsesController < ApplicationController
   # PATCH/PUT /responses/1
   def update
     if @response.update(response_params)
-      redirect_to @message, notice: 'Response was successfully updated.'
+      redirect_to message_response_path(@message, @response), notice: 'Response was successfully updated.'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class ResponsesController < ApplicationController
   # DELETE /responses/1
   def destroy
     @response.destroy
-    redirect_to responses_url, notice: 'Response was successfully destroyed.'
+    redirect_to message_responses_path(@message), notice: 'Response was successfully destroyed.'
   end
 
   private

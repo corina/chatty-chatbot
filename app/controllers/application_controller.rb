@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
 
   protected
   def authenticate
-    authenticate_or_request_with_http_basic do |admin, password|
-      admin == ADMIN_ID && password == PASSWORD
+    if ENV['RAILS_ENV'] != 'test'
+      authenticate_or_request_with_http_basic do |admin, password|
+        admin == ADMIN_ID && password == PASSWORD
+      end
     end
   end
 
