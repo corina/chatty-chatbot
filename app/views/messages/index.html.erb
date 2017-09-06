@@ -16,10 +16,10 @@
       <tr>
         <td><%= message.content %></td>
         <td><%= message.first_asked %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Add responses', new_message_response_path(message) %></td>
-        <td><%= link_to 'Show responses', message_responses_path(message) %></td>
+        <td class="admin_menu"><%= link_to 'Show', message %></td>
+        <td class="admin_menu"><%= link_to 'Edit', edit_message_path(message) %></td>
+        <td class="admin_menu"><%= link_to 'Add responses', new_message_response_path(message) %></td>
+        <td class="admin_menu"><%= link_to 'Show responses', message_responses_path(message) %></td>
         <td><%= button_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -14,34 +14,60 @@
  *= require_self
  */
 
- .black {
-   background-color: ;
- }
 
 .row {
   margin-top: 50px;
 }
 
 button.response, button.hello {
-    top: 5px;
-    left: 30px;
-    margin-top: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    position:relative;
-    background-color: #9FFF8C;
-    border: 1px;
-    border-radius: 50px 30px 5px 30px;
+  top: 5px;
+  left: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  position:relative;
+  background-color: #9FFF8C;
+  border: 1px;
+  border-radius: 50px 30px 5px 30px;
 }
 
 li {
-    top: 5px;
-    right: 30px;
-    padding: 5px;
-    margin-top: 10px;
-    position:relative;
-    background-color: black;
-    color: #019C0E;
-    border: 1px;
-    border-radius: 30px 50px 30px 5px;
+  top: 5px;
+  right: 30px;
+  padding: 5px;
+  margin-top: 10px;
+  position:relative;
+  background-color: black;
+  color: #019C0E;
+  border: 1px;
+  border-radius: 30px 50px 30px 5px;
+}
+
+
+footer {
+  display: inline;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+#admin {
+  float: right;
+  margin-right: 40%;
+  display: inline;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 15px;
+}
+
+#owner {
+  float: left;
+  margin-left: 35%;
+  display: inline;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 15px;
 }
