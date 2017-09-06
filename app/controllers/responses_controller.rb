@@ -3,25 +3,20 @@ class ResponsesController < ApplicationController
   before_action :set_response, only: [:show, :edit, :update, :destroy]
   before_action :set_message
 
-  # GET /responses
   def index
     @responses = @message.responses
   end
 
-  # GET /responses/1
   def show
   end
 
-  # GET /responses/new
   def new
     @response = @message.responses.build
   end
 
-  # GET /responses/1/edit
   def edit
   end
 
-  # POST /responses
   def create
     @response = @message.responses.build(response_params)
 
@@ -32,7 +27,6 @@ class ResponsesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /responses/1
   def update
     if @response.update(response_params)
       redirect_to message_response_path(@message, @response), notice: 'Response was successfully updated.'
@@ -41,14 +35,12 @@ class ResponsesController < ApplicationController
     end
   end
 
-  # DELETE /responses/1
   def destroy
     @response.destroy
     redirect_to message_responses_path(@message), notice: 'Response was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_response
       @response = Response.find(params[:id])
     end
@@ -57,7 +49,6 @@ class ResponsesController < ApplicationController
       @message = Message.find(params[:message_id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def response_params
       params.require(:response).permit(:content, :next_message, :end_game, :message_id)
     end

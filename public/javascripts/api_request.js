@@ -29,7 +29,9 @@
   ApiRequest.prototype.makeRequest = function (message_id) {
     messageRequest(message_id, function(message, error) {
       responseRequest(getMessageId(message_id, message), function(responses, error) {
-        insertElements(message, responses);
+        setTimeout(function(){
+          insertElements(message, responses);
+        }, 0);
       });
     })
   }

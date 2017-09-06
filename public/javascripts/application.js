@@ -20,8 +20,9 @@ $(document).ready(function () {
   interfaceDOM = new InterfaceDOM();
   apiRequest = new ApiRequest();
 
-  $(document.body).on('click', 'button.hello', function(event){
+  $(document.body).on('click', "button.hello", function(event){
     event.preventDefault();
+    interfaceDOM.deactivateButtons("button.hello");
     apiRequest.makeRequest('?first_asked=true');
   });
 
