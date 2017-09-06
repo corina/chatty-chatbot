@@ -31,7 +31,7 @@
       responseRequest(getMessageId(message_id, message), function(responses, error) {
         setTimeout(function(){
           insertElements(message, responses);
-        }, 2000);
+        }, 1000);
       });
     })
   }

@@ -14,7 +14,7 @@ To access the admin section use user = "Homer" and password="S1mps0n". I used HT
 Built using JavaScript and jQuery for the single page user facing app and Ruby on Rails for the admin backend.
 
 I used 2 types of controllers: API and Base.
-I used Rails API to generate the backend and created 2 models: Messages and Responses with responses belonging to messages. Each response has a field `next_message` pointing to the next message to be shown if that particular message is picked.
+I used Rails API to generate the backend and created 2 models: Messages and Responses with responses belonging to messages. Each response has a field `next_message` pointing to the next message to be shown if that particular response is picked.
 Message has a field `first_asked` which takes `true` or `false` values. This is the first shown message after you say Hello to the bot and can be used as a starting point for different types of actions, each response can then start a different tree of messages and responses.
 
 I used Rails Base and `scaffold` to generate controllers/ views and tests for the admin part.
