@@ -1,10 +1,30 @@
 # Chatty Chatbot
 
-
 ## Synopsis
 
-The Chatty Chatbot is a single page user facing app where you can have a heart to heart chat with a bot or just ask him to quizz you on importnat matters like cartoons.
-You can chat with Chatty [here][1].
+The Chatty Chatbot is a single page user facing app where you can have a heart to heart chat with a bot or just ask him to quiz you on important matters like cartoons.
+You can chat with Chatty [here][1] (heroku app).
+
+To access the admin section use user = "Homer" and password="S1mps0n".
+
+![id](https://raw.githubusercontent.com/corina/chatty-chatbot/master/public/images/Screen%20Shot.png)
+
+## Built
+
+Built using JavaScript and jQuery for the single page user facing app and Ruby on Rails for the admin backend.
+
+I used 2 types of controllers: API and Base.
+I used Rails API to generate the backend and created 2 models: Messages and Responses with responses belonging to messages. Each response has a field `next_message` pointing to the next message to be shown if that particular message is picked.
+Message has a field `first_asked` which takes `true` or `false` values. This is the first shown message after you say Hello to the bot and can be used as a starting point for different types of actions, each response can then start a different tree of messages and responses.
+
+I used Rails Base and `scaffold` to generate controllers/ views and tests for the admin part.
+
+The home page is build using JavaScript and jQuery. I used AJAX requests to interact with the API controllers which made possible keeping the entire conversation on one page.
+The possible responses are buttons and the user can click on the option they want to choose.
+
+I used HTTP Basic authentication.
+
+Tested using Rspec and Capybara. Tests include: requests tests for API, unit tests for admin and feature tests for front-end.
 
 ## User stories
 
@@ -39,11 +59,6 @@ I want to see all responses a message can have
 So I can update the responses,  
 I want to be able to create a new one, see, update and delete an old one
 
-
-## Built
-
-Built using JavaScript and jQuery for the single page user facing app and Ruby on Rails for the admin backend.
-Tested using Rspec and Capybara.
 
 ## Installation
 
